@@ -11,7 +11,11 @@
     <title>{{ config('app.name', 'Laravel') }}</title>
 
     <!-- Styles -->
+    
+    <link href="/css/font-awesome.min.css" rel="stylesheet" type='text/css'>
+    <link href="bootstrap/css/bootstrap.min.css" rel="stylesheet">
     <link href="/css/app.css" rel="stylesheet">
+   
 
     <!-- Scripts -->
     <script>
@@ -44,7 +48,9 @@
                 <div class="collapse navbar-collapse" id="app-navbar-collapse">
                     <!-- Left Side Of Navbar -->
                     <ul class="nav navbar-nav">
-                        &nbsp;
+                        @if (Auth::check())
+                            <li><a href="{{ url('/home') }}">Dashboard</a></li>
+                        @endif    
                     </ul>
 
                     <!-- Right Side Of Navbar -->
@@ -52,7 +58,7 @@
                         <!-- Authentication Links -->
                         @if (Auth::guest())
                             <li><a href="{{ url('/login') }}">Login</a></li>
-                            <li><a href="{{ url('/register') }}">Register</a></li>
+                            <li><a href="{{ url('/register') }}">Daftar</a></li>
                         @else
                             <li class="dropdown">
                                 <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
@@ -85,5 +91,6 @@
     <!-- Scripts -->
     <script src="/js/app.js"></script>
 
+    
 </body>
 </html>
